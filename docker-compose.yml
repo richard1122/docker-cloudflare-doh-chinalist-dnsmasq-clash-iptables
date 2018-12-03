@@ -16,7 +16,8 @@ services:
     build:
       context: ./clash
     volumes:
-      - ./clash/config.yml:/home/appuser/.config/clash/config.yml:ro
+      - ./clash/config.yml:/.config/clash/config.yml:ro
+    # ports is useless when network mode is host.
     ports:
       - "7890:7890"
       - "7891:7891"

@@ -1,6 +1,8 @@
 FROM dreamacro/clash
-RUN addgroup -g 900 -S appuser && \
-    adduser -u 900 -G appuser -S appuser && \
-    mkdir -p /home/appuser/.config/clash && \
-    mv /root/.config/clash/Country.mmdb /home/appuser/.config/clash/Country.mmdb
-USER appuser
+ADD https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64 /gosu
+RUN chmod 555 /gosu && \
+    mkdir -p /.config/clash && \
+    mv /root/.config/clash/Country.mmdb /.config/clash/Country.mmdb && \
+    chmod 777 -R /.config/
+ENTRYPOINT ["/gosu"]
+CMD ["900:900", "/clash"]
