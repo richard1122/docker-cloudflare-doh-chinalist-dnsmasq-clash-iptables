@@ -6,4 +6,5 @@ exec dnsmasq --conf-dir=/etc/dnsmasq.d/ \
     --keep-in-foreground \
     --log-facility=/dev/stdout \
     --no-resolv \
+    --log-queries \
     --user=root 

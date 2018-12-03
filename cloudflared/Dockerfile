@@ -7,6 +7,8 @@ RUN apk update && \
 # ===========================
 FROM alpine:3.8
 COPY --from=builder /go/bin/cloudflared /cloudflared
+RUN apk add --update --no-cache ca-certificates && \
+    rm -rf /var/cache/apk/*
 ENTRYPOINT ["/cloudflared"]
-PORT 53
+EXPOSE 5300
 CMD ["proxy-dns", "--port", "5300", "--address", "0.0.0.0" ]

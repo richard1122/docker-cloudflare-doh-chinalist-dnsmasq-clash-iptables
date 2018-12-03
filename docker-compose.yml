@@ -10,3 +10,5 @@ services:
     restart: always
     depends_on:
       - cloudflared
+    ports:
+      - "5300:53/udp"

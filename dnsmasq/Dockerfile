@@ -13,6 +13,7 @@ RUN tar zxvf ${CDL_FILE} --strip 1 \
 FROM alpine:3.8
 COPY --from=builder /chinadns.conf /etc/dnsmasq/
 ADD entrypoint.sh /entrypoint.sh
+EXPOSE 53
 RUN  apk add --no-cache dnsmasq && \
     rm -rf /var/cache/apk/*
 ENTRYPOINT [ "/entrypoint.sh" ]
