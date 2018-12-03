@@ -1,0 +1,12 @@
+version: "3"
+services:
+  cloudflared:
+    build:
+      context: ./cloudflared
+    restart: always
+  dnsmasq:
+    build:
+      context: ./dnsmasq
+    restart: always
+    depends_on:
+      - cloudflared
