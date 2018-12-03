@@ -12,3 +12,14 @@ services:
       - cloudflared
     ports:
       - "5300:53/udp"
+  clash:
+    image: dreamacro/clash
+    volumes:
+      - ./clash/config.yml:/root/.config/clash/config.yml
+    ports:
+      - "7890:7890"
+      - "7891:7891"
+      - "7892:7892"
+    restart: always
+    network_mode: host
+    privileged: true
