@@ -13,9 +13,10 @@ services:
     ports:
       - "5300:53/udp"
   clash:
-    image: dreamacro/clash
+    build:
+      context: ./clash
     volumes:
-      - ./clash/config.yml:/root/.config/clash/config.yml
+      - ./clash/config.yml:/home/appuser/.config/clash/config.yml:ro
     ports:
       - "7890:7890"
       - "7891:7891"
