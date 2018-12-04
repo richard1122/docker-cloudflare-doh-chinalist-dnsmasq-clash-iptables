@@ -10,6 +10,7 @@ services:
     restart: always
     depends_on:
       - cloudflared
+      - clash
     ports:
       - "5300:53/udp"
   clash:
