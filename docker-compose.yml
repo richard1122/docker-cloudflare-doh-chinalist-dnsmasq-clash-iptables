@@ -10,7 +10,6 @@ services:
     restart: always
     depends_on:
       - cloudflared
-      - clash
     ports:
       - "5300:53/udp"
   clash:
@@ -26,3 +25,5 @@ services:
     restart: always
     network_mode: host
     privileged: true
+    depends_on:
+      - dnsmasq
