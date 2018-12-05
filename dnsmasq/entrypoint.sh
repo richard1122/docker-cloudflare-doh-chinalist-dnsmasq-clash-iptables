@@ -6,4 +6,5 @@ exec dnsmasq --conf-dir=/etc/dnsmasq.d/ \
     --log-facility=/dev/stdout \
     --no-resolv \
     --log-queries \
-    --user=root 
+    --port=5300 \
+    --user=root
