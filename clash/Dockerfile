@@ -8,4 +8,4 @@ RUN chmod 555 /gosu && \
     apk add --no-cache --update iptables \
     rm -rf /var/cache/apk/*
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/gosu", "900:900", "/clash"]
+CMD ["/gosu", "900", "/clash"]
